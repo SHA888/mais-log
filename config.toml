@@ -1,0 +1,62 @@
+# MAIS Log — Zola configuration
+# Documentation: https://www.getzola.org/documentation/getting-started/configuration/
+
+base_url = "https://sha888.id"
+title = "MAIS Log"
+description = "A learning log on Medical AI Security, written from a clinical perspective."
+default_language = "en"
+
+# Build options
+compile_sass = true
+build_search_index = true
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+# Use UTC for build timestamps
+output_dir = "public"
+
+# Markdown rendering
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+smart_punctuation = true
+render_emoji = false
+external_links_target_blank = false
+external_links_no_follow = false
+external_links_no_referrer = false
+
+# Taxonomies
+taxonomies = [
+  { name = "tags", feed = true },
+]
+
+# Search index
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+
+# Site-wide variables accessible in templates
+[extra]
+author = "SHA888"
+author_handle = "@sha888"
+mastodon_url = "https://mastodon.social/@sha888"
+github_url = "https://github.com/SHA888"
+repo_url = "https://github.com/SHA888/mais-log"
+
+# Track metadata for navigation
+[[extra.tracks]]
+name = "Notes"
+path = "/notes"
+description = "Weekly thinking-in-public. Editable. Cite by commit hash."
+
+[[extra.tracks]]
+name = "Synthesis"
+path = "/synthesis"
+description = "Monthly pattern abstraction. Append-only with revision notes."
+
+[[extra.tracks]]
+name = "Essays"
+path = "/essays"
+description = "Quarterly substantial work. Append-only. Tri-lens (A, M, C)."

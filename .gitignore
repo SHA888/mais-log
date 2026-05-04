@@ -1,0 +1,38 @@
+# Zola build output
+public/
+static/processed_images/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor cruft
+.vscode/
+.idea/
+.zed/
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Backup files
+*.bak
+*.tmp
+
+# Local environment
+.env
+.env.local
+
+# Node (in case any tooling is added later)
+node_modules/
+
+# Python (in case any tooling is added later)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Rust (in case any tooling is added later)
+target/
+Cargo.lock

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default(value=config.default_language) }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock %}">
+  <meta name="author" content="{{ config.extra.author }}">
+
+  {# Open Graph #}
+  <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{{ config.description }}{% endblock %}">
+  <meta property="og:type" content="website">
+
+  {# Mastodon verification #}
+  <link rel="me" href="{{ config.extra.mastodon_url }}">
+
+  {# Atom feed #}
+  {% if config.generate_feeds %}
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+  {% endif %}
+
+  {# Stylesheet #}
+  {% if config.compile_sass %}
+  <link rel="stylesheet" href="{{ get_url(path='main.css', trailing_slash=false) }}">
+  {% endif %}
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{ config.base_url }}" class="site-title">{{ config.title }}</a>
+      <ul>
+        <li><a href="/notes">Notes</a></li>
+        <li><a href="/synthesis">Synthesis</a></li>
+        <li><a href="/essays">Essays</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>
+      <a href="{{ config.extra.mastodon_url }}" rel="me">Mastodon</a> ·
+      <a href="{{ config.extra.github_url }}">GitHub</a> ·
+      <a href="{{ config.extra.repo_url }}">Source</a> ·
+      <a href="{{ get_url(path='atom.xml', trailing_slash=false) }}">Feed</a>
+    </p>
+    <p>
+      Prose: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> ·
+      Code: MIT OR Apache-2.0
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# This file ensures the _drafts/ directory is tracked by git even when empty.
+#
+# Drafts go here as plain markdown files. They are committed to the repo but
+# excluded from the Zola build via the build configuration.
+#
+# Why this exists: consistent with public-from-day-one — half-formed thinking
+# is visible in `git log` if anyone looks, but doesn't appear on the site
+# until intentionally moved to content/.
