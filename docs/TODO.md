@@ -57,7 +57,7 @@ writing. No content yet beyond the README and section indexes.
 - [x] WORKFLOW.md — drafting, publishing, editing flow
 - [x] CONTRIBUTING.md — what's welcome, what's not
 - [x] TODO.md — this file
-- [ ] Add favicon (low priority; can be a placeholder initially)
+- [x] Add favicon (low priority; can be a placeholder initially)
 
 ### 0.4 Domain and deploy
 
