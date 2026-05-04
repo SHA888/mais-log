@@ -66,7 +66,7 @@ writing. No content yet beyond the README and section indexes.
       self-hosted VPS
   - [x] Evaluate: cost, build pipeline, custom domain support, longevity
   - [x] Take a position; document the choice in WORKFLOW.md
-- [ ] Configure CI: build Zola on push to `main`, deploy to chosen target
+- [x] Configure CI: build Zola on push to `main`, deploy to chosen target
 - [ ] Configure DNS: point `sha888.id` at the deploy target
 - [ ] Verify HTTPS works end-to-end
 - [ ] Verify Atom feed at `https://sha888.id/atom.xml`
