@@ -111,19 +111,47 @@ overwrite the old one.
 
 ## Deploy
 
-Static site builds to `public/`. Deploy is via [decide on host: GitHub
-Pages, Cloudflare Pages, Netlify, or self-hosted on a VPS]. Configure CI
-once and forget it.
+Static site builds to `public/`. Deploy is via **GitHub Pages** (using the
+repo's `gh-pages` branch).
+
+**Why GitHub Pages?**
+
+- Cost: free, no billing risk
+- Build pipeline: native GitHub Actions support; no external CI needed
+- Custom domain: full support for `sha888.id` via CNAME
+- Durability: same as the repo itself (GitHub mirrors matter, but the repo
+  is our source of truth)
+- Low maintenance: no VPS to manage, no third-party account to monitor
+
+CI (GitHub Actions) builds the site on every push to `main`, then deploys
+the `public/` directory to the `gh-pages` branch. GitHub automatically serves
+the `gh-pages` branch at the configured custom domain.
 
 The deployment target is `https://sha888.id`.
 
 ## Backups and durability
 
-- The git repo is the source of truth. GitHub is one mirror.
-- Periodically (quarterly?) push to a second remote — a self-hosted Gitea,
-  Codeberg, or similar — for durability against GitHub-specific risk.
+- The git repo is the source of truth. GitHub is the primary remote.
+- GitHub Pages is deployed from `gh-pages` branch; the source (`main`) is
+  always recoverable from the static output.
+- Periodically (quarterly?) push to a second remote (self-hosted Gitea,
+  Codeberg, or similar) for durability against GitHub-specific risk.
 - Local clones on at least two machines.
 - The repo is small (markdown only); offline backups are cheap.
+- The site's content is also backed up in the `gh-pages` branch history
+  on GitHub, independent of `main`.
+
+## GitHub Pages setup
+
+Repository settings (`github.com/SHA888/mais-log/settings/pages`):
+
+1. **Source**: Deploy from a branch
+2. **Branch**: `gh-pages` / `/ (root)`
+3. **Custom domain**: `sha888.id` (requires DNS CNAME)
+4. **Enforce HTTPS**: enabled
+
+CI/CD (GitHub Actions) builds and deploys automatically. No manual steps
+after initial DNS setup.
 
 ## When this workflow changes
 

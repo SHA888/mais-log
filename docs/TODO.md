@@ -62,10 +62,10 @@ writing. No content yet beyond the README and section indexes.
 ### 0.4 Domain and deploy
 
 - [x] Acquire `sha888.id`
-- [ ] Decide deploy target: GitHub Pages, Cloudflare Pages, Netlify, or
+- [x] Decide deploy target: GitHub Pages, Cloudflare Pages, Netlify, or
       self-hosted VPS
-  - [ ] Evaluate: cost, build pipeline, custom domain support, longevity
-  - [ ] Take a position; document the choice in WORKFLOW.md
+  - [x] Evaluate: cost, build pipeline, custom domain support, longevity
+  - [x] Take a position; document the choice in WORKFLOW.md
 - [ ] Configure CI: build Zola on push to `main`, deploy to chosen target
 - [ ] Configure DNS: point `sha888.id` at the deploy target
 - [ ] Verify HTTPS works end-to-end
