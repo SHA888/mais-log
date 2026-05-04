@@ -17,13 +17,14 @@ output_dir = "public"
 
 # Markdown rendering
 [markdown]
-highlight_code = true
-highlight_theme = "base16-ocean-dark"
 smart_punctuation = true
 render_emoji = false
 external_links_target_blank = false
 external_links_no_follow = false
 external_links_no_referrer = false
+
+[markdown.highlighting]
+theme = "github-dark"
 
 # Taxonomies
 taxonomies = [
